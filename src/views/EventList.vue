@@ -6,12 +6,12 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import EventCard from "@/components/EventCard.vue";
 import EventService from "@/services/EventService";
 
 export default {
   name: "EventList",
+  props: ["page"],
   components: {
     EventCard,
   },
@@ -21,7 +21,7 @@ export default {
     };
   },
   created() {
-    EventService.getEvents()
+    EventService.getEvents(2, this.page)
       .then((response) => (this.events = response.data))
       .catch((error) => console.log(error));
   },
