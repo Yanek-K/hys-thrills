@@ -19,7 +19,7 @@ const routes = [
     component: About,
   },
   {
-    path: "/event/:id",
+    path: "/events/:id",
     name: "EventLayout",
     props: true,
     component: EventLayout,
@@ -41,6 +41,12 @@ const routes = [
         component: EventEdit,
       },
     ],
+  },
+  {
+    path: "/event/:afterEvent(.*)",
+    redirect: (to) => {
+      return { path: "/events/" + to.params.afterEvent };
+    },
   },
 ];
 
