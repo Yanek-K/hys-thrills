@@ -5,6 +5,7 @@ import EventDetails from "../views/event/Details.vue";
 import EventLayout from "../views/event/Layout.vue";
 import EventRegister from "../views/event/Register.vue";
 import EventEdit from "../views/event/Edit.vue";
+import NetworkError from "../views/NetworkError.vue";
 import NotFound from "../views/NotFound.vue";
 
 const routes = [
@@ -59,6 +60,11 @@ const routes = [
     redirect: (to) => {
       return { path: "/events/" + to.params.afterEvent };
     },
+  },
+  {
+    path: "/network-error",
+    name: "NetworkError",
+    component: NetworkError,
   },
 ];
 
